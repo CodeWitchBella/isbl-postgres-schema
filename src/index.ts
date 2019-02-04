@@ -32,7 +32,7 @@ export default async function getSchema({ knex }: { knex: Knex }) {
     table.push(column)
   }
 
-  return Array.from(tableMap.entries()).map(([name, columns]) => {
+  const tables = Array.from(tableMap.entries()).map(([name, columns]) => {
     return {
       name,
       columns: columns.map(col => {
@@ -55,4 +55,5 @@ export default async function getSchema({ knex }: { knex: Knex }) {
       }),
     }
   })
+  return { tables }
 }
