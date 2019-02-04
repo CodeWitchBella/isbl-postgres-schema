@@ -4,3 +4,4 @@ package-lock.json
 .eslintrc.js
 .eslintcache
 test.js
+.rts2_cache_*
