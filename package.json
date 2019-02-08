@@ -14,9 +14,9 @@
   "author": "Isabella Skořepová <me@codewitchbella.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/isabella.skorepova/isa-scripts/issues"
+    "url": "https://gitlab.com/codewitchbella/isa-scripts/issues"
   },
-  "homepage": "https://gitlab.com/isabella.skorepova/isa-scripts#readme",
+  "homepage": "https://gitlab.com/codewitchbella/isa-scripts#readme",
   "publishConfig": {
     "access": "public"
   },
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "prepare": "microbundle --target node",
-    "check": "isa-scripts-backend check",
-    "lint": "isa-scripts-backend lint"
+    "check": "cwb-scripts-backend check",
+    "lint": "cwb-scripts-backend lint"
   }
 }
