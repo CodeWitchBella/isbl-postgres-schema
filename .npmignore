@@ -1,7 +1,5 @@
-src
-tsconfig.json
 package-lock.json
-.eslintrc.js
 .eslintcache
-test.js
 .rts2_cache_*
+
+test.js
