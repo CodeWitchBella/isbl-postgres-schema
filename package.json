@@ -1,6 +1,6 @@
 {
   "name": "@codewitchbella/postgres-schema",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Get postgres database structure in JSON",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -19,11 +19,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@codewitchbella/ts-utils": "^0.1.10"
+    "@codewitchbella/ts-utils": "^0.1.11"
   },
   "devDependencies": {
     "@codewitchbella/microbundle": "^0.11.1",
-    "@codewitchbella/scripts-backend": "^0.2.0",
+    "@codewitchbella/scripts-backend": "^0.2.1",
     "knex": "^0.16.3",
     "pg": "^7.9.0"
   },
