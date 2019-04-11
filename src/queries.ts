@@ -18,6 +18,7 @@ export type PgSchemaColumn = {
   is_nullable: boolean
   data_type: string
   dtd_identifier: string
+  column_default: string | null
   // there are many more columns but we do not need them
 }
 

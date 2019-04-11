@@ -51,6 +51,7 @@ export default async function getSchema({ knex }: { knex: Knex }) {
                 column: target.foreign_column_name,
               }
             : null,
+          hasDefault: !!col.column_default,
         }
       }),
     }
