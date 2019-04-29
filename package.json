@@ -1,6 +1,6 @@
 {
   "name": "@codewitchbella/postgres-schema",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Get postgres database structure in JSON",
   "main": "dist/index.js",
   "source": "src/index.ts",
