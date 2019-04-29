@@ -88,11 +88,39 @@ function getReferences({
   )
 }
 
+function getComments({
+  knex,
+  schema,
+}: InnerOptions): Promise<
+  {
+    table_name: string
+    column_name: string
+    description: string
+  }[]
+> {
+  return Promise.resolve(
+    knex
+      .raw(
+        `
+    SELECT c.table_name,c.column_name,pgd.description
+    FROM pg_catalog.pg_statio_all_tables as st
+      inner join pg_catalog.pg_description pgd on (pgd.objoid=st.relid)
+      inner join information_schema.columns c on (pgd.objsubid=c.ordinal_position
+        and  c.table_schema=st.schemaname and c.table_name=st.relname)
+    WHERE c.table_schema = :schema;
+    `,
+        { schema },
+      )
+      .then(v => v.rows),
+  )
+}
+
 export default async function query({ schema = 'public', ...rest }: Options) {
   const opts = { ...rest, schema }
   return {
     columns: await getColumns(opts),
     elementTypes: await getElementTypes(opts),
     references: await getReferences(opts),
+    comments: await getComments(opts),
   }
 }

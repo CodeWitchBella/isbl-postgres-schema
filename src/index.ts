@@ -20,7 +20,7 @@ function typeForColumn(
 }
 
 export default async function getSchema({ knex }: { knex: Knex }) {
-  const { columns, elementTypes, references } = await query({ knex })
+  const { columns, elementTypes, references, comments } = await query({ knex })
 
   const tableMap = new Map<string, typeof columns>()
   for (const column of columns) {
@@ -32,9 +32,24 @@ export default async function getSchema({ knex }: { knex: Knex }) {
     table.push(column)
   }
 
-  const tables = Array.from(tableMap.entries()).map(([name, columns]) => {
+  const commentMap = new Map<string, Map<string, string>>()
+  for (const comment of comments) {
+    if (!commentMap.has(comment.table_name))
+      commentMap.set(comment.table_name, new Map())
+    const columns = commentMap.get(comment.table_name)!
+    columns.set(comment.column_name, comment.description)
+  }
+  function getComment(table: string, column: string): string | null {
+    const columns = commentMap.get(table)
+    if (!columns) return null
+    const comment = columns.get(column)
+    if (comment === undefined) return null // allows empty string
+    return comment
+  }
+
+  const tables = Array.from(tableMap.entries()).map(([tableName, columns]) => {
     return {
-      name,
+      name: tableName,
       columns: columns.map(col => {
         const target = references.find(
           r =>
@@ -52,6 +67,7 @@ export default async function getSchema({ knex }: { knex: Knex }) {
               }
             : null,
           hasDefault: !!col.column_default,
+          comment: getComment(tableName, col.column_name),
         }
       }),
     }

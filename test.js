@@ -12,8 +12,15 @@ const knex = require('knex')({
 
 getSchema({
   knex,
-}).then(v => {
-  if (Array.isArray(v)) for (const table of v) console.log(table)
-  else console.log(v)
+}).then(({ tables }) => {
+  for (const table of tables) {
+    for (const column of table.columns) {
+      if (column.comment) {
+        console.log(table.name, column.name, column.comment)
+      }
+    }
+  }
+  if (Array.isArray(tables)) for (const table of tables) console.log(table)
+  else console.log(tables)
   knex.destroy()
 })
