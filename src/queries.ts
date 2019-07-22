@@ -84,7 +84,7 @@ function getReferences({
     `,
         { schema },
       )
-      .then(v => v.rows),
+      .then(v => (v as any).rows),
   )
 }
 
@@ -111,7 +111,7 @@ function getComments({
     `,
         { schema },
       )
-      .then(v => v.rows),
+      .then(v => (v as any).rows),
   )
 }
 
