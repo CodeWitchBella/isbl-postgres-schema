@@ -8,7 +8,7 @@ function typeForColumn(
   const type = column.data_type
   if (type === 'ARRAY') {
     const t = elementTypes.find(
-      et =>
+      (et) =>
         et.object_name === column.table_name &&
         et.object_type === 'TABLE' &&
         et.collection_type_identifier === column.dtd_identifier,
@@ -50,9 +50,9 @@ export default async function getSchema({ knex }: { knex: Knex }) {
   const tables = Array.from(tableMap.entries()).map(([tableName, columns]) => {
     return {
       name: tableName,
-      columns: columns.map(col => {
+      columns: columns.map((col) => {
         const target = references.find(
-          r =>
+          (r) =>
             r.column_name === col.column_name &&
             r.table_name === col.table_name,
         )

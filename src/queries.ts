@@ -33,7 +33,7 @@ export type PgSchemaElementType = {
 function getColumns({ knex, schema }: InnerOptions): Promise<PgSchemaColumn[]> {
   return Promise.resolve(
     knex('information_schema.columns').where('table_schema', schema),
-  ).then(v =>
+  ).then((v) =>
     v.map((el: any) => ({
       ...el,
       is_nullable: el.is_nullable === 'YES',
@@ -84,7 +84,7 @@ function getReferences({
     `,
         { schema },
       )
-      .then(v => (v as any).rows),
+      .then((v) => (v as any).rows),
   )
 }
 
@@ -111,7 +111,7 @@ function getComments({
     `,
         { schema },
       )
-      .then(v => (v as any).rows),
+      .then((v) => (v as any).rows),
   )
 }
 
