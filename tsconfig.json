@@ -1,6 +1,15 @@
 {
-  "extends": "./node_modules/@codewitchbella/scripts-backend/tsconfig.json",
-  "include": [
-    "src/**/*"
-  ]
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2021",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "declaration": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+  }
 }

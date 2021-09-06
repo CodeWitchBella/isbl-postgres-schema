@@ -1,38 +1,32 @@
 {
-  "name": "@codewitchbella/postgres-schema",
+  "name": "@isbl/postgres-schema",
   "version": "0.2.0",
   "description": "Get postgres database structure in JSON",
-  "main": "dist/index.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/CodeWitchBella/isa-scripts.git"
-  },
-  "author": "Isabella Skořepová <me@codewitchbella.com>",
+  "exports": "./dist/postgres-schema.js",
+  "type": "module",
+  "author": "Isabella Skořepová <isabella@skorepova.info>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/codewitchbella/isa-scripts/issues"
-  },
-  "homepage": "https://gitlab.com/codewitchbella/isa-scripts#readme",
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": false,
   "dependencies": {
     "@codewitchbella/ts-utils": "^0.2.0"
   },
   "devDependencies": {
-    "@codewitchbella/microbundle": "^0.11.1",
-    "@codewitchbella/scripts-backend": "^0.3.0",
-    "knex": "^0.21.2",
-    "pg": "^8.3.0"
+    "@isbl/publisher": "^0.7.1",
+    "knex": "^0.95.11",
+    "microbundle": "^0.13.3",
+    "pg": "^8.7.1",
+    "typescript": "^4.4.2"
   },
   "peerDependencies": {
-    "knex": "^0.16.3"
+    "knex": "^0.95.0"
   },
   "scripts": {
-    "prepare": "microbundle --target node",
-    "check": "cwb-scripts-backend check",
-    "lint": "cwb-scripts-backend lint"
+    "prepare": "microbundle --target node -f esm -o dist/postgres-schema.js",
+    "prepublishOnly": "isbl-publisher prepublishOnly",
+    "publish:npm": "isbl-publisher publish --no-draft"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeWitchBella/isbl-postgres-schema.git"
   }
 }
