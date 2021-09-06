@@ -1,8 +1,9 @@
 {
   "name": "@isbl/postgres-schema",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Get postgres database structure in JSON",
-  "exports": "./dist/postgres-schema.js",
+  "exports": "./dist/postgres-schema.esm.js",
+  "types": "dist/postgres-schema.d.ts",
   "type": "module",
   "author": "Isabella Skořepová <isabella@skorepova.info>",
   "license": "MIT",
@@ -21,7 +22,7 @@
     "knex": "^0.95.0"
   },
   "scripts": {
-    "prepare": "microbundle --target node -f esm -o dist/postgres-schema.js",
+    "prepare": "microbundle --target node -f esm",
     "prepublishOnly": "isbl-publisher prepublishOnly",
     "publish:npm": "isbl-publisher publish --no-draft"
   },
