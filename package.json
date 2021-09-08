@@ -1,6 +1,6 @@
 {
   "name": "@isbl/postgres-schema",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Get postgres database structure in JSON",
   "exports": "./dist/postgres-schema.esm.js",
   "types": "dist/postgres-schema.d.ts",
@@ -21,6 +21,9 @@
   "peerDependencies": {
     "knex": "^0.95.0"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "microbundle src/postgres-schema.ts --target node -f esm",
     "prepublishOnly": "isbl-publisher prepublishOnly",
