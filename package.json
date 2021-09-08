@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@codewitchbella/ts-utils": "^0.2.0"
+    "@isbl/ts-utils": "^1.0.0"
   },
   "devDependencies": {
     "@isbl/publisher": "^0.7.1",
