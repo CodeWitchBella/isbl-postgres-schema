@@ -29,5 +29,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/CodeWitchBella/isbl-postgres-schema.git"
+  },
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
   }
 }
