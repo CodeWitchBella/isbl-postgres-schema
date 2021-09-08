@@ -967,11 +967,6 @@
     node-fetch "^2.6.1"
     open "^8.2.1"
 
-"@isbl/ts-utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@isbl/ts-utils/-/ts-utils-1.0.0.tgz#b4617dbf654cd47e7d0147b1b1bb48aece8e4d68"
-  integrity sha512-Iiapvxs67rkdxTpihlaoB+8bl5q/QDd0ykPwpD3pSSINBCs2OYv6lOv9xCIdrvyaGWJunm4y2i0NVygHu9JIdg==
-
 "@rollup/plugin-alias@^3.1.1":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-3.1.5.tgz#73356a3a1eab2e1e2fd952f9f53cd89fc740d952"
